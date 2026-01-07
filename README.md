@@ -7,7 +7,7 @@
 
 A Claude Code agent that analyzes external Claude/Obsidian setups and integrates their best features into your system.
 
-![Borg Agent Banner - Coming Soon]
+![Borg Agent Banner](borg-banner.png)
 
 ## The Problem
 
@@ -76,7 +76,7 @@ ln -s borg/agents/borg.md borg.md
 
 ## Usage
 
-### Analyze an external system
+### Analyze a local directory
 
 ```
 Assimilate ~/path/to/external-claude-setup
@@ -88,10 +88,21 @@ The agent will:
 3. Check dependencies against your infrastructure
 4. Generate an assimilation report with recommendations
 
+### Clone and analyze a GitHub repository
+
+```
+Clone and assimilate https://github.com/username/their-claude-setup
+```
+
+The agent will:
+1. Clone the repository to a temporary location
+2. Analyze its `.claude/` directory structure
+3. Generate assimilation report with recommendations
+
 ### Absorb a specific feature
 
 ```
-Borg: absorb the research-skill from ~/path/to/external-system
+Borg: absorb the specific-skill from ~/path/to/external-system
 ```
 
 ### Compare systems
@@ -108,14 +119,15 @@ What have we assimilated recently?
 
 ## Example Workflow
 
-**Scenario:** You find a Claude setup with an interesting "Art" skill for generating Midjourney prompts.
+**Scenario:** You find a Claude setup on GitHub with interesting skills for generating image prompts.
 
 ```
-User: Assimilate ~/Downloads/PersonalAI_Infrastructure
+User: Clone and assimilate https://github.com/example/awesome-claude-setup
 
 Borg:
 [Phase 1: Reconnaissance]
-Scanning ~/Downloads/PersonalAI_Infrastructure...
+Cloning repository...
+Scanning repository structure...
 
 Found:
 - 12 skills
@@ -128,26 +140,26 @@ Checking dependencies...
 ✅ OpenAI API - available
 ✅ Anthropic API - available
 ⚠️  Replicate API - MISSING, will substitute with OpenAI DALL-E
-❌ Custom MCP server "art-gen" - MISSING, will skip related features
+❌ Custom MCP server "image-gen" - MISSING, will skip related features
 
 [Phase 2: Gap Analysis]
-CRITICAL Features:
-- Art skill (Midjourney prompt generation) - HIGH VALUE
+HIGH VALUE Features:
+- image-prompt skill (AI image prompt generation) - HIGH VALUE
   Adaptation: None of your skills handle image prompting
 
-MEDIUM Features:
-- Research skill (parallel query spawning) - MEDIUM VALUE
+MEDIUM VALUE Features:
+- research skill (parallel query spawning) - MEDIUM VALUE
   Note: You have 8 specialized librarian agents
   Recommendation: ITERATE - extract parallel pattern, don't replace agents
 
 [Phase 3: Adaptation Planning]
-Art Skill:
-- Source: ~/Downloads/PersonalAI_Infrastructure/.claude/Skills/Art/
-- Target: ~/.claude/skills/art/
+image-prompt Skill:
+- Source: /tmp/awesome-claude-setup/.claude/skills/image-prompt/
+- Target: ~/.claude/skills/image-prompt/
 - Adaptations needed:
-  * Rename "Art" → "art" (lowercase)
-  * Replace Replicate calls with OpenAI DALL-E
-  * Adapt prompts to your brand palette
+  * Convert naming to your conventions
+  * Replace Replicate API calls with OpenAI DALL-E
+  * Adapt to your local infrastructure
 
 Ready to assimilate? [Y/N]
 ```
@@ -180,24 +192,24 @@ This prevents losing your domain-specific implementations while still gaining va
 Every assimilation updates `CHANGELOG-borg.md`:
 
 ```markdown
-## [2026-01-07] Assimilation: Art Skill
+## [2026-01-07] Assimilation: Image Prompt Skill
 
-**Source:** PersonalAI_Infrastructure
-**Source Path:** ~/Downloads/PersonalAI_Infrastructure
+**Source:** awesome-claude-setup
+**Source URL:** https://github.com/example/awesome-claude-setup
 
 ### Added
-- skill: art - Midjourney prompt generation with brand adaptation
+- skill: image-prompt - AI image prompt generation
 
 ### Adapted
 - Replaced Replicate with OpenAI DALL-E
-- Converted TitleCase → lowercase
-- Adapted to Signal Over Noise brand palette
+- Converted naming conventions to local standards
+- Adapted to local infrastructure
 
 ### Dependencies
 - OpenAI API key required
 
 ### Usage
-Run: `generate art prompt for [description]`
+Run: `generate image prompt for [description]`
 ```
 
 ## Philosophy
