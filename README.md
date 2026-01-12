@@ -9,6 +9,12 @@ A Claude Code agent that analyzes external Claude/Obsidian setups and integrates
 
 ![Borg Agent Banner](borg-banner.png)
 
+## Watch It In Action
+
+[![Watch the Borg Agent Demo](https://img.youtube.com/vi/zbiiZLaz660/maxresdefault.jpg)](https://youtu.be/zbiiZLaz660)
+
+*Click to watch: Stop Copying Claude Code Skills Blindly*
+
 ## The Problem
 
 You see someone's Claude Code setup online and think "I want that feature."
