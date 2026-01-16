@@ -7,7 +7,7 @@
 
 A Claude Code agent that analyzes external Claude/Obsidian setups and integrates their best features into your system.
 
-![Borg Agent Banner](borg-banner.png)
+![Architecture](docs/images/architecture-diagram.png)
 
 ## Watch It In Action
 
