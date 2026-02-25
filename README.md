@@ -234,10 +234,6 @@ This means:
 - Access to external `.claude/` directories you want to analyze
 - Appropriate API keys for features you choose to assimilate
 
-## Contributing
-
-Contributions welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
 ## License
 
 MIT License - see [LICENSE](LICENSE) file for details.
