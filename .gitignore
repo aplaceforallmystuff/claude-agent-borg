@@ -36,3 +36,8 @@ CHANGELOG-borg.md
 # Test directories
 test-systems/
 examples/external-setups/
+
+# Environment files
+.env
+.env.local
+.env.*.local
