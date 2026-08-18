@@ -1,7 +1,7 @@
 {
   "name": "claude-agent-borg",
   "displayName": "Agent Borg",
-  "description": "Analyze external Claude Code setups and assimilate the best, most relevant features into your own. Human-in-the-loop, no blind copying.",
+  "description": "Analyze external Claude Code setups and assimilate the best, most relevant features into your own. You stay in the lead \u2014 no blind copying.",
   "version": "1.0.0",
   "author": {
     "name": "Jim Christian",
