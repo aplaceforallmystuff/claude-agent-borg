@@ -1,0 +1,6 @@
+{
+  "name": "claude-agent-borg",
+  "description": "Analyze external Claude Code setups and assimilate the best, most relevant features into your own. Human-in-the-loop, no blind copying.",
+  "version": "1.0.0",
+  "author": { "name": "Jim Christian", "email": "hello@jimchristian.net" }
+}
