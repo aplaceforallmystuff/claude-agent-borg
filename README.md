@@ -1,13 +1,13 @@
-# Claude Agent Borg
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Claude Code](https://img.shields.io/badge/Claude_Code-Agent-blue)](https://claude.ai)
+# Agent Borg
 
 *Resistance is futile. Your capabilities will be assimilated.*
 
-A Claude Code agent that analyzes external Claude/Obsidian setups and integrates their best features into your system.
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Claude Code Plugin](https://img.shields.io/badge/Claude%20Code-Plugin-6C5CE7)
 
-![Architecture](docs/images/architecture-diagram.png)
+![Agent Borg](borg-banner.png)
+
+A Claude Code agent that analyzes external Claude/Obsidian setups and integrates their best features into your system.
 
 ## Watch It In Action
 
@@ -15,7 +15,7 @@ A Claude Code agent that analyzes external Claude/Obsidian setups and integrates
 
 *Click to watch: Stop Copying Claude Code Skills Blindly*
 
-## The Problem
+## Why
 
 You see someone's Claude Code setup online and think "I want that feature."
 
@@ -27,7 +27,44 @@ But copying and pasting creates problems:
 
 This agent solves that.
 
-## How It Works
+## Install
+
+```bash
+# In Claude Code:
+/plugin marketplace add aplaceforallmystuff/marketplace
+/plugin install claude-agent-borg@jim-christian
+```
+
+<details>
+<summary>Manual install (without the marketplace)</summary>
+
+```bash
+# Clone the repository
+git clone https://github.com/aplaceforallmystuff/claude-agent-borg.git
+
+# Copy to your Claude Code agents directory
+cp claude-agent-borg/agents/borg.md ~/.claude/agents/
+```
+
+Or add it as a git submodule:
+
+```bash
+# Add as submodule in your .claude directory
+cd ~/.claude/agents
+git submodule add https://github.com/aplaceforallmystuff/claude-agent-borg.git borg
+ln -s borg/agents/borg.md borg.md
+```
+</details>
+
+## Use cases
+
+- Use it when you find a Claude setup on GitHub and want its skills without copying blindly: `Clone and assimilate https://github.com/username/their-claude-setup`.
+- Use it to analyze a local `.claude/` directory and get an assimilation report: `Assimilate ~/path/to/external-claude-setup`.
+- Use it to absorb one specific feature rather than a whole system: `Borg: absorb the specific-skill from ~/path/to/external-system`.
+- Use it to compare your system against another and surface gaps: `Compare my system with ~/path/to/external-setup and identify gaps`.
+- Use it to review what has already been pulled in: `What have we assimilated recently?`.
+
+## How it works
 
 The Borg agent runs a systematic 5-phase assimilation process:
 
@@ -38,6 +75,8 @@ The Borg agent runs a systematic 5-phase assimilation process:
 | 3. Adaptation Planning | Maps conventions | Converts external patterns to your standards |
 | 4. Assimilation | Integrates features | Creates adapted artifacts in your system |
 | 5. Documentation | Updates changelogs | Tracks what was absorbed and from where |
+
+![Architecture](docs/images/architecture-diagram.png)
 
 ### Key Features
 
@@ -59,71 +98,43 @@ The Borg agent runs a systematic 5-phase assimilation process:
 - Adapts to your branding and aesthetic
 - Preserves source attribution
 
-## Installation
+### Advanced: ITERATE Mode
 
-### Option 1: Copy to your Claude Code agents directory
+When the external system has a generic version of something you've specialized, the agent can extract just the pattern:
 
-```bash
-# Clone the repository
-git clone https://github.com/aplaceforallmystuff/claude-agent-borg.git
+**Example:**
+- External: Generic "Research" skill that searches 5 sources in parallel
+- Your system: 8 specialized librarian agents (tech, craft, security, etc.)
+- **ITERATE decision**: Don't replace your agents. Instead, extract the "parallel spawn + query decomposition" pattern and apply it to YOUR agents.
 
-# Copy to your Claude Code agents directory
-cp claude-agent-borg/agents/borg.md ~/.claude/agents/
+This prevents losing your domain-specific implementations while still gaining valuable patterns.
+
+### What Gets Tracked
+
+Every assimilation updates `CHANGELOG-borg.md`:
+
+```markdown
+## [2026-01-07] Assimilation: Image Prompt Skill
+
+**Source:** awesome-claude-setup
+**Source URL:** https://github.com/example/awesome-claude-setup
+
+### Added
+- skill: image-prompt - AI image prompt generation
+
+### Adapted
+- Replaced Replicate with OpenAI DALL-E
+- Converted naming conventions to local standards
+- Adapted to local infrastructure
+
+### Dependencies
+- OpenAI API key required
+
+### Usage
+Run: `generate image prompt for [description]`
 ```
 
-### Option 2: Git submodule
-
-```bash
-# Add as submodule in your .claude directory
-cd ~/.claude/agents
-git submodule add https://github.com/aplaceforallmystuff/claude-agent-borg.git borg
-ln -s borg/agents/borg.md borg.md
-```
-
-## Usage
-
-### Analyze a local directory
-
-```
-Assimilate ~/path/to/external-claude-setup
-```
-
-The agent will:
-1. Scan the external `.claude/` directory
-2. Identify skills, agents, commands, hooks
-3. Check dependencies against your infrastructure
-4. Generate an assimilation report with recommendations
-
-### Clone and analyze a GitHub repository
-
-```
-Clone and assimilate https://github.com/username/their-claude-setup
-```
-
-The agent will:
-1. Clone the repository to a temporary location
-2. Analyze its `.claude/` directory structure
-3. Generate assimilation report with recommendations
-
-### Absorb a specific feature
-
-```
-Borg: absorb the specific-skill from ~/path/to/external-system
-```
-
-### Compare systems
-
-```
-Compare my system with ~/path/to/external-setup and identify gaps
-```
-
-### Check assimilation history
-
-```
-What have we assimilated recently?
-```
-
-## Example Workflow
+## Example
 
 **Scenario:** You find a Claude setup on GitHub with interesting skills for generating image prompts.
 
@@ -182,41 +193,11 @@ The agent adapts to YOUR system's conventions. Common mappings:
 
 You can customize convention mappings by editing the agent's `<convention_mappings>` section.
 
-## Advanced: ITERATE Mode
+### Requirements
 
-When the external system has a generic version of something you've specialized, the agent can extract just the pattern:
-
-**Example:**
-- External: Generic "Research" skill that searches 5 sources in parallel
-- Your system: 8 specialized librarian agents (tech, craft, security, etc.)
-- **ITERATE decision**: Don't replace your agents. Instead, extract the "parallel spawn + query decomposition" pattern and apply it to YOUR agents.
-
-This prevents losing your domain-specific implementations while still gaining valuable patterns.
-
-## What Gets Tracked
-
-Every assimilation updates `CHANGELOG-borg.md`:
-
-```markdown
-## [2026-01-07] Assimilation: Image Prompt Skill
-
-**Source:** awesome-claude-setup
-**Source URL:** https://github.com/example/awesome-claude-setup
-
-### Added
-- skill: image-prompt - AI image prompt generation
-
-### Adapted
-- Replaced Replicate with OpenAI DALL-E
-- Converted naming conventions to local standards
-- Adapted to local infrastructure
-
-### Dependencies
-- OpenAI API key required
-
-### Usage
-Run: `generate image prompt for [description]`
-```
+- Claude Code CLI
+- Access to external `.claude/` directories you want to analyze
+- Appropriate API keys for features you choose to assimilate
 
 ## Philosophy
 
@@ -228,16 +209,6 @@ This means:
 - Infrastructure gaps are bridged or substituted
 - The collective (your system) improves without losing identity
 
-## Requirements
-
-- Claude Code CLI
-- Access to external `.claude/` directories you want to analyze
-- Appropriate API keys for features you choose to assimilate
-
-## License
-
-MIT License - see [LICENSE](LICENSE) file for details.
-
 ## Author
 
 Built by [Jim Christian](https://github.com/aplaceforallmystuff) as part of the Claude Code agent ecosystem.
@@ -246,9 +217,11 @@ Built by [Jim Christian](https://github.com/aplaceforallmystuff) as part of the 
 
 Inspired by the need to learn from the best setups without copying blindly. If you find a better way to do something, resistance is futile.
 
----
-
 **Related Projects:**
 - [claude-draft-reviewer](https://github.com/aplaceforallmystuff/claude-draft-reviewer) - Reviews AND fixes drafts
 - [claude-think-first](https://github.com/aplaceforallmystuff/claude-think-first) - Mental models before implementation
 - [claude-creation-guard](https://github.com/aplaceforallmystuff/claude-creation-guard) - Prevents duplicate artifacts
+
+## License
+
+MIT — see [LICENSE](LICENSE).

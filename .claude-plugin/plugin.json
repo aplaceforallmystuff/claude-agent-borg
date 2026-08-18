@@ -1,6 +1,21 @@
 {
   "name": "claude-agent-borg",
+  "displayName": "Agent Borg",
   "description": "Analyze external Claude Code setups and assimilate the best, most relevant features into your own. Human-in-the-loop, no blind copying.",
   "version": "1.0.0",
-  "author": { "name": "Jim Christian", "email": "hello@jimchristian.net" }
+  "author": {
+    "name": "Jim Christian",
+    "email": "hello@jimchristian.net",
+    "url": "https://jimchristian.net"
+  },
+  "homepage": "https://github.com/aplaceforallmystuff/claude-agent-borg#readme",
+  "repository": "https://github.com/aplaceforallmystuff/claude-agent-borg",
+  "license": "MIT",
+  "keywords": [
+    "assimilation",
+    "claude-config",
+    "agent",
+    "integration",
+    "meta"
+  ]
 }
