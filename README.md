@@ -32,7 +32,7 @@ This agent solves that.
 ```bash
 # In Claude Code:
 /plugin marketplace add aplaceforallmystuff/marketplace
-/plugin install claude-agent-borg@jim-christian
+/plugin install claude-agent-borg@aplaceforallmystuff
 ```
 
 <details>
